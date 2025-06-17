@@ -8,7 +8,7 @@ class Interface {
 public:
     string inputBuffer;
     string defaultPrompt;
-
+    
     Interface();
 
     void printDefaultPrompt();

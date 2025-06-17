@@ -10,6 +10,7 @@
         "./implements/interface.cpp",
         "./implements/metaCmdHandler.cpp",
         "./implements/queryParser.cpp",
+        "./implements/virtualMachine.cpp",
         "-o",
         "mydb.exe",
         "-std=c++11",

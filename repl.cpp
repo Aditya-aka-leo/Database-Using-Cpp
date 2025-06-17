@@ -2,6 +2,7 @@
 #include "./interfaces/interface.h"
 #include "./interfaces/metaCmdHandler.h"
 #include "./interfaces/queryParser.h"
+#include "./interfaces/virtualMachine.h"
 
 using namespace std;
 
@@ -9,7 +10,8 @@ int main()
 {
     Interface ui;
     metaCmdHandler metaCmd;
-    QueryParser queryParser;
+    virtualMachine vm;
+    QueryParser queryParser(&vm);
 
     while(1){
 

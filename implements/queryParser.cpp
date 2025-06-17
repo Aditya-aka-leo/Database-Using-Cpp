@@ -10,10 +10,6 @@ void QueryParser::tokenGen() {
 
     while (ss >> token) this->tokens.push_back(token);
 
-    for(auto i : tokens) {
-        cout << i << " ";
-    }
-
     return;
 }
 
@@ -21,6 +17,10 @@ void QueryParser::parse() {
 
     tokenGen();
 
+    if(tokens.empty()) {
+        cout << "No query provided." << endl;
+        return;
+    }
 
     this->queryIdentifier = this->tokens[0];
 
@@ -38,6 +38,14 @@ void QueryParser::parse() {
 
 void QueryParser::insert() {
     cout << "Processing INSERT query: " << queryBuffer << endl;
+
+    if (tokens.size() < 4) {
+        cout << "Invalid INSERT query. Usage: insert <name> <email>" << endl;
+
+        return;
+    }
+
+    vm->insertRow(tokens);
 }
 
 void QueryParser::update() {
@@ -50,4 +58,11 @@ void QueryParser::deleteQuery() {
 
 void QueryParser::select() {
     cout << "Processing SELECT query: " << queryBuffer << endl;
+
+    if (tokens.empty()) {
+        cout << "No rows available." << endl;
+        return;
+    }
+
+    vm->selectRow();
 }

@@ -7,6 +7,7 @@ void Interface::printDefaultPrompt() {
 }
 
 void Interface::userInput() {
+    inputBuffer.clear();
     getline(cin, inputBuffer);
 
     if (inputBuffer.empty()) {

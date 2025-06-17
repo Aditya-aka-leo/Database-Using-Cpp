@@ -18,6 +18,7 @@ int main()
 
         if(ui.inputBuffer.empty()) {
             cout << "No command entered." << endl;
+            
             continue;
         }
         

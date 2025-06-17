@@ -9,16 +9,16 @@ class QueryParser {
 public:
     string queryBuffer;
     string queryIdentifier;
+    vector<string> tokens;
 
     void parse();
     void insert();
     void update();
     void deleteQuery();
     void select();
-    vector<string> tokenGen();
+    void tokenGen();
     
 
 };
-
 
 #endif

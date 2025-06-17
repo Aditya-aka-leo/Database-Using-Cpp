@@ -1,24 +1,28 @@
 #include "../interfaces/queryParser.h"
 
-vector<string> QueryParser::tokenGen() {
-    vector<string> tokens;
+void QueryParser::tokenGen() {
+
+    tokens.clear();
 
     stringstream ss(queryBuffer);
 
     string token;
 
-    while (ss >> token) tokens.push_back(token);
+    while (ss >> token) this->tokens.push_back(token);
 
-    return tokens;
+    for(auto i : tokens) {
+        cout << i << " ";
+    }
+
+    return;
 }
 
 void QueryParser::parse() {
 
-    vector<string> tokens;
+    tokenGen();
 
-    tokens = tokenGen();
 
-    this->queryIdentifier = tokens[0];
+    this->queryIdentifier = this->tokens[0];
 
     if (queryIdentifier == "insert") insert();
 

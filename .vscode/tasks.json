@@ -1,0 +1,26 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "C++ Build and Run (multi-file)",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "repl.cpp",
+        "./implements/interface.cpp",
+        "./implements/metaCmdHandler.cpp",
+        "./implements/queryParser.cpp",
+        "-o",
+        "mydb.exe",
+        "-std=c++11",
+        "-mconsole"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"],
+      "detail": "Compile repl.cpp"
+    }
+  ]
+}

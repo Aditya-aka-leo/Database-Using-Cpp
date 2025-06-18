@@ -1,5 +1,4 @@
-#ifndef virtualMachine_h
-#define virtualMachine_h
+#pragma once
 
 #include<bits/stdc++.h>
 #include "row.h"
@@ -8,7 +7,13 @@ using namespace std;
 
 class virtualMachine {
 public:
-    vector<row> rows;
+    vector<Row> rows;
+
+    static const int MAX_PAGES = TABLE_MAX_PAGES;
+
+    char* pages[MAX_PAGES] = {nullptr};
+    
+    int numRows = 0;
 
     void insertRow(vector<string> tokens);
     
@@ -18,6 +23,7 @@ public:
 
     void selectRow();
 
+    
+private:
+    char* getRowSlot(int rowNum);
 };
-
-#endif

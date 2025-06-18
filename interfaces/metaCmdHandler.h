@@ -1,7 +1,7 @@
-#ifndef META_CMD_HANDLER_H
-#define META_CMD_HANDLER_H
+#pragma once
 
 #include<bits/stdc++.h>
+
 using namespace std;
 
 class metaCmdHandler {
@@ -13,4 +13,3 @@ public:
     void exitConsole();
 };
 
-#endif

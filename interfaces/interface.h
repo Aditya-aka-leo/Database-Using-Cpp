@@ -1,13 +1,12 @@
-#ifndef INTERFACE_H
-#define INTERFACE_H
+#pragma once
 
 #include<bits/stdc++.h>
+
 using namespace std;
 
 class Interface {
 public:
-    string inputBuffer;
-    string defaultPrompt;
+    string inputBuffer, defaultPrompt;
     
     Interface();
 
@@ -16,5 +15,3 @@ public:
     void userInput();
 
 };
-
-#endif

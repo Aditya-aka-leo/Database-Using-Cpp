@@ -11,6 +11,7 @@
         "./implements/metaCmdHandler.cpp",
         "./implements/queryParser.cpp",
         "./implements/virtualMachine.cpp",
+        "./implements/row.cpp",
         "-o",
         "mydb.exe",
         "-std=c++11",

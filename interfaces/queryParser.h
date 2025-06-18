@@ -1,5 +1,4 @@
-#ifndef QUERY_PARSER_H
-#define QUERY_PARSER_H
+#pragma once
 
 #include<bits/stdc++.h>
 #include "virtualMachine.h"
@@ -8,9 +7,10 @@ using namespace std;
 
 class QueryParser {
 public:
-    string queryBuffer;
-    string queryIdentifier;
+    string queryBuffer, queryIdentifier;
+
     vector<string> tokens;
+
     virtualMachine* vm;
 
     QueryParser(virtualMachine* vmInstance) : vm(vmInstance) {}
@@ -19,11 +19,12 @@ public:
     
 private:
     void tokenGen();
-    void insert();
-    void update();
-    void deleteQuery();
-    void select();
-    
-};
 
-#endif  
+    void insert();
+
+    void update();
+
+    void deleteQuery();
+
+    void select();
+};

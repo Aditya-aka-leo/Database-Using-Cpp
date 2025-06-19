@@ -1,5 +1,14 @@
 #include "../interfaces/virtualMachine.h"
 
+virtualMachine::virtualMachine(Pager* pagerInstance) {
+    this->pager = pagerInstance;
+
+    int numFullPages = pager->fileLength / PAGE_SIZE;
+
+    numRows = numFullPages * ROWS_PER_PAGE;
+
+}
+
 void virtualMachine::insertRow(vector<string> tokens) {
     if (tokens.size() < 4) {
         cout << "Invalid INSERT query. Usage: insert <name> <email>" << endl;
@@ -36,7 +45,9 @@ void virtualMachine::selectRow() {
 
         Row row;
         row.deserializeRow(slot, row);
-        
+
+        if (row.rowId == 0 && row.name.empty() && row.email.empty()) continue;
+    
         cout << row.rowId << "\t" << row.name << "\t" << row.email << endl;
     }
 }
@@ -44,10 +55,10 @@ void virtualMachine::selectRow() {
 char*  virtualMachine::getRowSlot(int rowNum) {
     int pageNum = rowNum / ROWS_PER_PAGE;
 
-    if (pages[pageNum] == nullptr) pages[pageNum] = new char[PAGE_SIZE];
+    char* page = pager->getPage(pageNum);
 
     int rowOffset = rowNum % ROWS_PER_PAGE;
 
-    return pages[pageNum] + (rowOffset * ROW_SIZE);
+    return page + (rowOffset * ROW_SIZE);
 
 }

@@ -8,8 +8,8 @@ class metaCmdHandler {
 public:
     string userInputBuffer;
 
-    void parser ();
+    bool parser ();
 
-    void exitConsole();
+    bool exitConsole();
 };
 

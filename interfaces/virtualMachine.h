@@ -2,6 +2,7 @@
 
 #include<bits/stdc++.h>
 #include "row.h"
+#include "pager.h"
 
 using namespace std;
 
@@ -11,7 +12,9 @@ public:
 
     static const int MAX_PAGES = TABLE_MAX_PAGES;
 
-    char* pages[MAX_PAGES] = {nullptr};
+    Pager* pager;
+
+    virtualMachine(Pager* pager);
     
     int numRows = 0;
 

@@ -12,9 +12,10 @@
         "./implements/queryParser.cpp",
         "./implements/virtualMachine.cpp",
         "./implements/row.cpp",
+        "./implements/pager.cpp",
         "-o",
         "mydb.exe",
-        "-std=c++11",
+        "-std=c++17",
         "-mconsole"
       ],
       "group": {

@@ -1,12 +1,15 @@
 #include "../interfaces/metaCmdHandler.h"
 
-void metaCmdHandler::parser() {
-    if(userInputBuffer == ".exit") exitConsole();
+bool metaCmdHandler::parser() {
+    if (userInputBuffer == ".exit") return exitConsole();
 
-    else cout << "Unrecognized command: " << userInputBuffer << endl;
+    else {
+        cout << "Unrecognized command: " << userInputBuffer << std::endl;
+        return false;
+    }
 }
 
-void metaCmdHandler::exitConsole() {
-    cout << "Exiting the console. Goodbye!" << endl;
-    exit(0);
+bool metaCmdHandler::exitConsole() {
+    cout << "Exiting the console. Goodbye!" <<endl;
+    return true; 
 }
